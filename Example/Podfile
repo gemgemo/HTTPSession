@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HTTPSession_Example' do
+  pod 'HTTPSession', :path => '../'
+
+  target 'HTTPSession_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
