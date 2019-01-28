@@ -14,10 +14,10 @@ public final class HTTPSession {
     requestBodyValue = "",
     responseStringValue = ""
     
-    lazy var downloader = Downloader.init(dependencies.backgroudIdentifier)
-    lazy var uploader = Uploader.init(dependencies)
+    public lazy var downloader = Downloader.init(dependencies.backgroudIdentifier)
+    public lazy var uploader = Uploader.init(dependencies)
     
-    required init(with requirements: HTTPSessionequirements, _ session: URLSession = .shared) {
+    public required init(with requirements: HTTPSessionequirements, _ session: URLSession = .shared) {
         self.session = session
         self.dependencies = requirements
         self.session.configuration.waitsForConnectivity = true
@@ -61,9 +61,9 @@ public final class HTTPSession {
         return request
     }
     
-    // MARK:- Internal functions
+    // MARK:- functions
     
-    func get<E, D: Decodable>(from endpoint: E,
+    public func get<E, D: Decodable>(from endpoint: E,
                               _ type: D.Type,
                               with headers: Headers? = .none,
                               _ handler: @escaping(Result<D>) -> Void) where E: Endpoint {
@@ -76,7 +76,7 @@ public final class HTTPSession {
         }
     }
     
-    func post<E: Endpoint, D>(_ data: Data?,
+    public func post<E: Endpoint, D>(_ data: Data?,
                               _ type: D.Type,
                               for endpoint: E,
                               with headers: Headers? = .none,
@@ -92,7 +92,7 @@ public final class HTTPSession {
         }
     }
     
-    func put<E, D: Decodable>(_ data: Data?,
+    public func put<E, D: Decodable>(_ data: Data?,
                               in endpoint: E,
                               _ type: D.Type,
                               with headers: Headers? = .none,
@@ -108,7 +108,7 @@ public final class HTTPSession {
         }
     }
     
-    func patch<E: Endpoint, D>(_ data: Data?,
+    public func patch<E: Endpoint, D>(_ data: Data?,
                                this endpoint: E,
                                _ type: D.Type,
                                with headers: Headers? = .none,
@@ -124,7 +124,7 @@ public final class HTTPSession {
         }
     }
     
-    func delete<E: Endpoint, D>(from endpoint: E,
+    public func delete<E: Endpoint, D>(from endpoint: E,
                                 _ type: D.Type,
                                 with headers: Headers? = .none,
                                 _ handler: @escaping(Result<D>) -> Void) where D: Decodable {
@@ -137,22 +137,22 @@ public final class HTTPSession {
         }
     }
     
-    func cancel() {
+    public func cancel() {
         task?.cancel()
         task = .none
     }
     
     // MARK:- Computed properties
     
-    var statusCode: Int? {
+    public var statusCode: Int? {
         return code
     }
     
-    var requestValue: String {
+    public var requestValue: String {
         return requestBodyValue
     }
     
-    var responseValue: String {
+    public var responseValue: String {
         return responseStringValue
     }
     

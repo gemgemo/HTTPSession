@@ -13,7 +13,7 @@ public final class Uploader: NSObject, URLSessionDataDelegate {
     identifier: String,
     networkServiceType: URLRequest.NetworkServiceType
     
-    var onCancel: Handler?,
+    public var onCancel: Handler?,
     completion: DataHandler?,
     onError: ErrorHandler?,
     completed: DoubleHandler?
@@ -26,7 +26,7 @@ public final class Uploader: NSObject, URLSessionDataDelegate {
     
     // MARK:- Functions
     
-    func upload(_ data: Data?,
+    public func upload(_ data: Data?,
                 orFrom file: URL?,
                 to link: String,
                 via method: UploadMethod = .post,
@@ -52,21 +52,21 @@ public final class Uploader: NSObject, URLSessionDataDelegate {
         task?.resume()
     }
     
-    func pause() {
+    public func pause() {
         let progress = task?.progress
         if case progress?.isPausable = true && progress?.isPaused == false && progress?.isFinished == false && progress?.isCancelled == false {
             progress?.pause()
         }
     }
     
-    func resume() {
+    public func resume() {
         let progress = task?.progress
         if case progress?.isFinished = false && progress?.isPaused == true && progress?.isCancelled == false {
             progress?.resume()
         }
     }
     
-    func cancel() {
+    public func cancel() {
         let progress = task?.progress
         if case progress?.isCancellable = true {
             progress?.cancel()

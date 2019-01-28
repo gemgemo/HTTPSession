@@ -12,7 +12,7 @@ public final class Downloader: NSObject, URLSessionDownloadDelegate {
     session: URLSession?,
     identifier: String
     
-    var onCancel: Handler?,
+    public var onCancel: Handler?,
     completion: URLHandler?,
     onError: ErrorHandler?,
     completed: DoubleHandler?
@@ -29,7 +29,7 @@ public final class Downloader: NSObject, URLSessionDownloadDelegate {
     /// - Parameters:
     ///   - link: string url of file need to download it
     ///   - headers: custom headers
-    func download(from link: String,
+    public func download(from link: String,
                   with headers: Headers? = .none) throws {
         guard let url = URL.init(string: link) else { throw HTTPSessionErrors.invalidURL }
         let downloadConfig = URLSessionConfiguration.background(withIdentifier: identifier)
@@ -43,21 +43,21 @@ public final class Downloader: NSObject, URLSessionDownloadDelegate {
         task?.resume()
     }
     
-    func pause() {
+    public func pause() {
         let progress = task?.progress
         if case progress?.isPausable = true && progress?.isPaused == false && progress?.isFinished == false && progress?.isCancelled == false {
             progress?.pause()
         }
     }
     
-    func resume() {
+    public func resume() {
         let progress = task?.progress
         if case progress?.isFinished = false && progress?.isPaused == true && progress?.isCancelled == false {
             progress?.resume()
         }
     }
     
-    func cancel() {
+    public func cancel() {
         let progress = task?.progress
         if case progress?.isCancellable = true {
             progress?.cancel()

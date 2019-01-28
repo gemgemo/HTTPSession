@@ -29,14 +29,14 @@ public enum UploadMethod: String {
 public final class HTTPSessionequirements {
     
     internal var base: String
-    var timeoutInterval = TimeInterval(60.0),
+    public var timeoutInterval = TimeInterval(60.0),
     backgroudIdentifier = "com.jemo.id.background",
     keyDecodingStrategy = JSONDecoder.KeyDecodingStrategy.useDefaultKeys,
     dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.deferredToDate,
     dataDecodingStrategy = JSONDecoder.DataDecodingStrategy.base64,
     networkServiceType = URLRequest.NetworkServiceType.default
     
-    required init(baseLink: String) {
+    public required init(baseLink: String) {
         self.base = baseLink
     }
     
