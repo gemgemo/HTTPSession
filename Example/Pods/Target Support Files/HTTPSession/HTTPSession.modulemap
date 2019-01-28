@@ -1,0 +1,6 @@
+framework module HTTPSession {
+  umbrella header "HTTPSession-umbrella.h"
+
+  export *
+  module * { export * }
+}

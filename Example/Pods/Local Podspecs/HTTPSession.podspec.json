@@ -1,0 +1,22 @@
+{
+  "name": "HTTPSession",
+  "version": "0.1.0",
+  "summary": "A short description of HTTPSession.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/gemgemo/HTTPSession",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "gemgemo": "gamalal3yk@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/gemgemo/HTTPSession.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HTTPSession/Classes/**/*"
+}

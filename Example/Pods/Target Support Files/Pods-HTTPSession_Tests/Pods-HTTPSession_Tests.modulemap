@@ -1,0 +1,6 @@
+framework module Pods_HTTPSession_Tests {
+  umbrella header "Pods-HTTPSession_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
