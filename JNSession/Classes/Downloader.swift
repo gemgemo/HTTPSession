@@ -31,7 +31,7 @@ public final class Downloader: NSObject, URLSessionDownloadDelegate {
     ///   - headers: custom headers
     public func download(from link: String,
                   with headers: Headers? = .none) throws {
-        guard let url = URL.init(string: link) else { throw HTTPSessionErrors.invalidURL }
+        guard let url = URL.init(string: link) else { throw JNSessionErrors.invalidURL }
         let downloadConfig = URLSessionConfiguration.background(withIdentifier: identifier)
         downloadConfig.networkServiceType = .background
         downloadConfig.waitsForConnectivity = true

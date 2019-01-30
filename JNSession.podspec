@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JNSession'
-  s.version          = '0.3.3'
+  s.version          = '0.3.4'
   s.swift_version    = '4.2'
   s.summary          = 'Simplify URLSession.'
 

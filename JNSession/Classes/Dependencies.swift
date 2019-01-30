@@ -18,7 +18,7 @@ public enum Result<T> {
     case fail(Error?), success(T?)
 }
 
-public enum HTTPSessionErrors: Error {
+public enum JNSessionErrors: Error {
     case invalidURL, uploadingFail
 }
 
@@ -26,7 +26,7 @@ public enum UploadMethod: String {
     case put = "PUT", post = "POST"
 }
 
-public final class HTTPSessionequirements {
+public final class JNSessionequirements {
     
     internal var base: String
     public var timeoutInterval = TimeInterval(60.0),

@@ -2,22 +2,23 @@
 //  ViewController.swift
 //  JNSession
 //
-//  Created by gemgemo on 01/30/2019.
-//  Copyright (c) 2019 gemgemo. All rights reserved.
+//  Created by Jamal on 01/30/2019.
+//  Copyright (c) 2019 Jamal. All rights reserved.
 //
 
 import UIKit
+import JNSession
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        _ = JNSession.init(with: .init(baseLink: "http://jojo.io/"))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
 }

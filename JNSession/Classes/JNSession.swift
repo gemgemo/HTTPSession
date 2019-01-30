@@ -1,14 +1,14 @@
 //
-//  HTTPSession.swift
+//  JNSession.swift
 //
 //  Created by Jamal Alayq on 1/28/19.
 //
 
 import Foundation
 
-public final class HTTPSession {
+public final class JNSession {
     
-    private let session: URLSession, dependencies: HTTPSessionequirements
+    private let session: URLSession, dependencies: JNSessionequirements
     private var task: URLSessionDataTask?,
     code: Int?,
     requestBodyValue = "",
@@ -17,7 +17,7 @@ public final class HTTPSession {
     public lazy var downloader = Downloader.init(dependencies.backgroudIdentifier)
     public lazy var uploader = Uploader.init(dependencies)
     
-    public required init(with requirements: HTTPSessionequirements, _ session: URLSession = .shared) {
+    public required init(with requirements: JNSessionequirements, _ session: URLSession = .shared) {
         self.session = session
         self.dependencies = requirements
         self.session.configuration.waitsForConnectivity = true
@@ -51,7 +51,7 @@ public final class HTTPSession {
     
     private func createRequest<E: Endpoint>(for endpoint: E,
                                             _ headers: Headers?) throws -> URLRequest {
-        guard let url = URL.init(string: dependencies.base + endpoint.rawValue) else { throw HTTPSessionErrors.invalidURL }
+        guard let url = URL.init(string: dependencies.base + endpoint.rawValue) else { throw JNSessionErrors.invalidURL }
         var request = URLRequest.init(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")

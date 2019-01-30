@@ -1,5 +1,5 @@
 PODS:
-  - JNSession (0.1.0)
+  - JNSession (0.3.4)
 
 DEPENDENCIES:
   - JNSession (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JNSession: cc562fa8f17ec7fdacc7add32426af7906904b6a
+  JNSession: 8dee4fae1d3c511119228268edffb958b419dc8d
 
 PODFILE CHECKSUM: e56492b6007b994242b92e113a9c73107fbe3d69
 

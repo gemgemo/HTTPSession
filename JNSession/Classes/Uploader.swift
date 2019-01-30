@@ -19,7 +19,7 @@ public final class Uploader: NSObject, URLSessionDataDelegate {
     completed: DoubleHandler?
     
     
-    internal init(_ requirements: HTTPSessionequirements) {
+    internal init(_ requirements: JNSessionequirements) {
         self.identifier = requirements.backgroudIdentifier
         self.networkServiceType = requirements.networkServiceType
     }
@@ -32,7 +32,7 @@ public final class Uploader: NSObject, URLSessionDataDelegate {
                 via method: UploadMethod = .post,
                 with body: Data? = .none,
                 and headers: Headers? = .none) throws {
-        guard let url = URL(string: link) else { throw HTTPSessionErrors.invalidURL }
+        guard let url = URL(string: link) else { throw JNSessionErrors.invalidURL }
         let uploadConfig = URLSessionConfiguration.background(withIdentifier: identifier)
         uploadConfig.waitsForConnectivity = true
         uploadConfig.networkServiceType = networkServiceType
@@ -41,13 +41,13 @@ public final class Uploader: NSObject, URLSessionDataDelegate {
         request.httpMethod = method.rawValue
         request.httpBody = body
         headers?.forEach { request.setValue($1, forHTTPHeaderField: $0) }
-        guard data != nil && file != nil else { throw HTTPSessionErrors.uploadingFail }
+        guard data != nil && file != nil else { throw JNSessionErrors.uploadingFail }
         if let data = data {
             task = session?.uploadTask(with: request, from: data)
         } else if let file = file {
             task = session?.uploadTask(with: request, fromFile: file)
         } else {
-            throw HTTPSessionErrors.uploadingFail
+            throw JNSessionErrors.uploadingFail
         }
         task?.resume()
     }
