@@ -1,0 +1,6 @@
+framework module JNSession {
+  umbrella header "JNSession-umbrella.h"
+
+  export *
+  module * { export * }
+}

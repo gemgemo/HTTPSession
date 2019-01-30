@@ -1,0 +1,16 @@
+PODS:
+  - JNSession (0.1.0)
+
+DEPENDENCIES:
+  - JNSession (from `../`)
+
+EXTERNAL SOURCES:
+  JNSession:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JNSession: cc562fa8f17ec7fdacc7add32426af7906904b6a
+
+PODFILE CHECKSUM: e56492b6007b994242b92e113a9c73107fbe3d69
+
+COCOAPODS: 1.5.3
